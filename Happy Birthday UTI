@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun, Uti!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: #f6d365;
+            padding: 50px;
+            color: #fff;
+            overflow: hidden;
+            position: relative;
+        }
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            z-index: -1;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            max-width: 500px;
+            position: relative;
+        }
+        h1 {
+            font-family: 'Sacramento', cursive;
+            font-size: 36px;
+            color: #ff4081;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+        .balloons {
+            font-size: 50px;
+            animation: float 2s infinite alternate;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
+        .button {
+            background: #ff4081;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            display: inline-block;
+            margin-top: 20px;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .button:hover {
+            background: #d81b60;
+        }
+        #surprise {
+            display: none;
+            font-size: 24px;
+            color: #ff4081;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff4081;
+            position: fixed;
+            top: -10px;
+            opacity: 0.7;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation"></div>
+    <div class="container">
+        <div class="balloons">🎈🎉🎂</div>
+        <h1>Selamat Ulang Tahun, Uti!</h1>
+        <p>Dari awal kuliah sampai sekarang, sudah 7 tahun kita kenal. Dari dulu sampai sekarang, kamu tetap jadi perempuan hebat yang selalu mengejar impian tanpa kenal lelah. Aku tahu sekarang mungkin lagi nggak mudah buat kamu, tapi percaya deh, ini cuma satu bab kecil dalam perjalanan panjangmu yang luar biasa.</p>
+        <p>Semoga ulang tahun ini jadi awal yang baru buat kamu. Semoga segala luka cepat sembuh, diganti dengan kebahagiaan yang lebih besar. Semoga impian-impianmu tercapai, langkahmu selalu dimudahkan, rezekimu dilancarkan, dan keluargamu selalu diberi kesehatan serta kebahagiaan. Ingat, kamu nggak sendirian—ada banyak orang yang sayang sama kamu, termasuk aku! 🫶</p>
+        <p>BANGGA DAN SENENG PUNYA TEMEN UTI YEY !!! 🎂✨</p>
+        <button class="button" onclick="showSurprise()">KLIK BIAR RAME 🎁</button>
+        <div id="surprise">✨🎊 HAPPY BIRTHDAY PUTRI AYU AZ-ZAHRA 🎊✨</div>
+    </div>
+    
+    <script>
+        function showSurprise() {
+            document.getElementById("surprise").style.display = "block";
+            createConfetti();
+        }
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                let confetti = document.createElement("div");
+                confetti.className = "confetti";
+                confetti.style.left = Math.random() * 100 + "vw";
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+    </script>
+</body>
+</html>
